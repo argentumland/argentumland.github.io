@@ -1,1 +1,86 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Load c3.css -->
+	<link href="https://rawgit.com/mozilla/metrics-graphics/master/dist/metricsgraphics.css" rel="stylesheet" type="text/css">
+	<link href="https://rawgit.com/mozilla/metrics-graphics/7b2f88189da8fcba055a4e9af75fe19b837144eb/examples/css/metricsgraphics-demo-dark.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">
+	<style type="text/css">
+		body {
+			font-family: 'Open Sans', sans-serif, Arial;
+            background: url("background_foro_dv.png") repeat;
+		}
+
+        footer, article {
+            text-align: center;
+        }
+
+        article {
+            font-size: 35px;
+            font-family: 'Macondo', cursive;
+            padding-bottom: 50px;
+            text-shadow: 2px 2px 1px rgba(0, 0, 0, 1),
+                         5px 5px 1px rgba(0, 0, 0, 1),
+                         8px 8px 5px rgba(0, 0, 0, 1)
+        ;
+        }
+
+        div#logo {
+            text-align: center;
+        }
+
+        .mg-x-axis text {
+            font-size: 1.2rem !important;
+        }
+	</style>
+
+	<!-- Load d3.js and c3.js -->
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="https://rawgit.com/mozilla/metrics-graphics/master/dist/metricsgraphics.min.js"></script>
+	<title>Argentum Online User Stats</title>
+</head>
+<body>
+<div id="logo"><img src="logo.png"></div>
+<div id="chart"></div>
+<article>En 24 horas, el pico maximo fue a las <span id="hour"></span> con <span id="count"></span> jugadores online al mismo tiempo!</article>
+<footer>
+    Made with <img src="heart.png" width="15" height="15"> by Jormot
+</footer>
+<script type="text/javascript">
+
+//d3.json("https://friendpaste.com/2KoIJwlg74P8HPr0TCzvoR/raw?" + Date.now(), function(data) {
+d3.json("data.json", function(data) {
+    var max_count = 0;
+    var max_date = "";
+    data.forEach(function(d){ d.date = new Date(d.date * 1000) });
+    data.forEach(function (d) {
+        if (d.value > max_count) {
+            max_count = d.value;
+            max_date = new Date(d.date);
+        }
+    });
+    MG.data_graphic({
+        data: data,
+        //animate_on_load: true,
+        target: '#chart',
+        full_width: true,
+        chart_type: 'line',
+        //x_axis: true,
+        //x_extended_ticks: true,
+        //area: false,
+        markers: [
+            {'date': max_date, 'label': 'Record del dia'},
+        ],
+        interpolate: d3.curveBasis,
+        right: 0,
+        top: 15,
+        left: 25,
+    });
+	  document.querySelector("#hour").innerText = ('0' + max_date.getHours()).slice(-2) + ":" + ('0' + max_date.getMinutes()).slice(-2);
+	  document.querySelector("#count").innerText = max_count;
+});
+
+</script>
+
+</body>
+</html>
