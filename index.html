@@ -11,14 +11,22 @@
             background: url("background_foro_dv.png") repeat;
 		}
 
-        footer, article {
+        footer, article, p {
             text-align: center;
+        }
+
+        footer {
+            padding-top: 35px;
+            font-size: .8em;
+        }
+
+        #count, #hour{
+            color: #5b80b2;
         }
 
         article {
             font-size: 35px;
             font-family: 'Macondo', cursive;
-            padding-bottom: 50px;
             text-shadow: 2px 2px 1px rgba(0, 0, 0, 1),
                          5px 5px 1px rgba(0, 0, 0, 1),
                          8px 8px 5px rgba(0, 0, 0, 1)
@@ -32,6 +40,10 @@
         .mg-x-axis text {
             font-size: 1.2rem !important;
         }
+
+        div#chart {
+            padding-right: 15px;
+        }
 	</style>
 
 	<!-- Load d3.js and c3.js -->
@@ -42,16 +54,18 @@
 <body>
 <div id="logo"><img src="logo.png"></div>
 <div id="chart"></div>
-<article>En 24 horas, el pico maximo fue a las <span id="hour"></span> con <span id="count"></span> jugadores online al mismo tiempo!</article>
+<article>En <span style="color: #f5dd5d">24 horas</span>, el pico maximo fue a las <span id="hour">0</span> con <span id="count">0</span> jugadores online al mismo tiempo!</article>
+<p>Actualizado hace <span id="since" style="color: #f5dd5d">...</span></p>
 <footer>
-    Made with <img src="heart.png" width="15" height="15"> by Jormot
+    Made with <img src="heart.png" width="10" height="10"> by Jormot
 </footer>
 <script type="text/javascript">
 
 d3.json("https://friendpaste.com/2KoIJwlg74P8HPr0TCzvoR/raw?" + Date.now(), function(data) {
     var max_count = 0;
     var max_date = "";
-    data.forEach(function(d){ d.date = new Date(d.date * 1000) });
+    var last_date = null;
+    data.forEach(function(d){ d.date = new Date(d.date * 1000); last_date = d.date; });
     data.forEach(function (d) {
         if (d.value > max_count) {
             max_count = d.value;
@@ -77,7 +91,28 @@ d3.json("https://friendpaste.com/2KoIJwlg74P8HPr0TCzvoR/raw?" + Date.now(), func
     });
 	  document.querySelector("#hour").innerText = ('0' + max_date.getHours()).slice(-2) + ":" + ('0' + max_date.getMinutes()).slice(-2);
 	  document.querySelector("#count").innerText = max_count;
+	  document.querySelector("#since").innerText = timeSince(last_date);
 });
+
+
+function timeSince(date) {
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " dias";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " horas";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutos";
+    }
+    return Math.floor(seconds) + " segundos";
+}
 
 </script>
 <script>
