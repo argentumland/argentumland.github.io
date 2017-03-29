@@ -48,8 +48,7 @@
 </footer>
 <script type="text/javascript">
 
-//d3.json("https://friendpaste.com/2KoIJwlg74P8HPr0TCzvoR/raw?" + Date.now(), function(data) {
-d3.json("data.json", function(data) {
+d3.json("https://friendpaste.com/2KoIJwlg74P8HPr0TCzvoR/raw?" + Date.now(), function(data) {
     var max_count = 0;
     var max_date = "";
     data.forEach(function(d){ d.date = new Date(d.date * 1000) });
