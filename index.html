@@ -1,58 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<!-- Load c3.css -->
-	<link href="https://rawgit.com/mozilla/metrics-graphics/master/dist/metricsgraphics.css" rel="stylesheet" type="text/css">
-	<link href="https://rawgit.com/mozilla/metrics-graphics/7b2f88189da8fcba055a4e9af75fe19b837144eb/examples/css/metricsgraphics-demo-dark.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet" type="text/css">
-
-	<!-- Load d3.js and c3.js -->
-	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script src="https://rawgit.com/mozilla/metrics-graphics/master/dist/metricsgraphics.min.js"></script>
-	<title>Argentum Online User Stats</title>
-
-	<meta property="fb:admins" content="jormot.king"/>
-</head>
-<body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div class="topnav">
-  <a href="#ofi" data-hash="2KoIJwlg74P8HPr0TCzvoR"><img src="img/logos/ofi.png"/></a>
-  <a href="#iao" data-hash="7Rw8fuKZJaDnPGgbGa3GzY"><img src="img/logos/iao.png"/></a>
-  <a href="#tds" data-hash="40WCZgZVMWv0pGhcx7teS4"><img src="img/logos/tds.png"/></a>
-  <a href="#fao" data-hash="40WCZgZVMWv0pGhcx82oBr"><img src="img/logos/fao.png"/></a>
-  <a href="#blosomao" data-hash="3l1PdhIVDwNvXQ6EFESZzT"><img src="img/logos/blosomao.png"/></a>
-  <!-- <a href="#nabrianao" data-hash="IaTS8AP4y8YfD85PDL3vA"><img src="img/logos/nabrianao.png"/></a> -->
-</div>
-<div id="logo"><img src=""></div>
-<div id="chart"></div>
-<article>En <span style="color: #f5dd5d">24 horas</span>, el pico maximo fue a las <span id="hour"></span> con <span id="count"></span> jugadores online al mismo tiempo!</article>
-<p>Actualizado hace <span id="since" style="color: #f5dd5d"></span></p>
-<div class="fb-like" data-colorscheme="dark" data-href="https://argentumland.github.io/" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-<div class="fb-comments" data-colorscheme="dark" data-width="100%" data-href="https://argentumland.github.io/" data-numposts="20"></div>
-<footer>
-    Made with <img src="heart.png" width="10" height="10"> by Jormot
-</footer>
-<script src="js/main.js "></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-96343961-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-<!-- <iframe src="https://discordapp.com/widget?id=298323792613212161&theme=dark" width="250" height="350" allowtransparency="true" frameborder="0"></iframe> -->
-
-</body>
-</html>
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content=#006300><meta name=msapplication-navbutton-color content=#006300><meta name=apple-mobile-web-app-status-bar-style content=#006300><title>Argentum Land</title><link rel=apple-touch-icon sizes=57x57 href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-icon-57x57.png><link rel=apple-touch-icon sizes=60x60 href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-icon-60x60.png><link rel=apple-touch-icon sizes=72x72 href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-icon-72x72.png><link rel=apple-touch-icon sizes=76x76 href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-icon-76x76.png><link rel=apple-touch-icon sizes=114x114 href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-icon-114x114.png><link rel=apple-touch-icon sizes=120x120 href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-icon-120x120.png><link rel=apple-touch-icon sizes=144x144 href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-icon-144x144.png><link rel=apple-touch-icon sizes=152x152 href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-icon-152x152.png><link rel=apple-touch-icon sizes=180x180 href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-icon-180x180.png><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black-translucent><meta name=apple-mobile-web-app-title content=argentumland-frontend><link rel=icon type=image/png sizes=32x32 href=/icons-cff8f10c3f30eae05d988d77f6c98105/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/icons-cff8f10c3f30eae05d988d77f6c98105/favicon-16x16.png><link rel="shortcut icon" href=/icons-cff8f10c3f30eae05d988d77f6c98105/favicon.ico><meta name=mobile-web-app-capable content=yes><meta name=theme-color content=#006300><meta name=application-name content=argentumland-frontend><link rel=apple-touch-startup-image media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-startup-image-320x460.png><link rel=apple-touch-startup-image media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-startup-image-640x920.png><link rel=apple-touch-startup-image media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-startup-image-640x1096.png><link rel=apple-touch-startup-image media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-startup-image-750x1294.png><link rel=apple-touch-startup-image media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-startup-image-1182x2208.png><link rel=apple-touch-startup-image media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-startup-image-1242x2148.png><link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-startup-image-748x1024.png><link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-startup-image-768x1004.png><link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-startup-image-1496x2048.png><link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href=/icons-cff8f10c3f30eae05d988d77f6c98105/apple-touch-startup-image-1536x2008.png><link href=/static/css/app.1764bfb7f11fb3ea1de7e9eec4b218ca.css rel=stylesheet></head><body><div id=fb-root></div><script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script><div id=app></div><script type=text/javascript src=/static/js/manifest.c4eaafdbe78592f3d1ed.js></script><script type=text/javascript src=/static/js/vendor.1eef0d61a95cba5ac4a3.js></script><script type=text/javascript src=/static/js/app.3e73c7a79bdbe82cec6e.js></script></body></html>
